@@ -3,7 +3,7 @@ import { FaEthereum } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full px-80 py-44">
+    <div className="min-h-screen w-full px-80 py-20 pt-44">
       <section className="mb-28 flex h-[60vh] w-full items-center bg-gray-100 p-24">
         <div className="w-1/2">
           <h1 className="text-5xl font-bold">CHERNER ARMCHAIR</h1>
