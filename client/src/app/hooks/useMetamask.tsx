@@ -21,15 +21,29 @@ export function MetamaskProvider({ children }: { children: ReactNode }) {
   const [signer, setSigner] = useState<JsonRpcSigner | null>(null);
 
   useEffect(() => {
-    connect();
+    async function init() {
+      (await isConnected()) && connect();
+    }
+    init();
   }, []);
 
   useEffect(() => {
-    window.ethereum.on("accountsChanged", function () {
+    window.ethereum.on("accountsChanged", async function (accounts: any) {
       // Time to reload your interface with accounts[0]!
-      connect();
+      (await isConnected()) ? connect() : setSigner(null);
     });
   }, []);
+
+  const isConnected = async () => {
+    const accounts = await window.ethereum.request({ method: "eth_accounts" });
+    if (accounts.length) {
+      console.log(`You're connected to: ${accounts[0]}`);
+      return true;
+    } else {
+      console.log("Metamask is not connected");
+      return false;
+    }
+  };
 
   const connect = async () => {
     if (window.ethereum == null) {
