@@ -28,13 +28,17 @@ export function MetamaskProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    window.ethereum.on("accountsChanged", async function (accounts: any) {
-      // Time to reload your interface with accounts[0]!
-      (await isConnected()) ? connect() : setSigner(null);
-    });
+    window.ethereum &&
+      window.ethereum.on("accountsChanged", async function (accounts: any) {
+        // Time to reload your interface with accounts[0]!
+        (await isConnected()) ? connect() : setSigner(null);
+      });
   }, []);
 
   const isConnected = async () => {
+    if (!window.ethereum) {
+      return false;
+    }
     const accounts = await window.ethereum.request({ method: "eth_accounts" });
     if (accounts.length) {
       console.log(`You're connected to: ${accounts[0]}`);

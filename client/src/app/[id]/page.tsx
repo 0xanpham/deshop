@@ -54,7 +54,7 @@ export default function Detail() {
                     src="/images/nike.png"
                     alt="nike"
                     fill
-                    style={{ objectFit: "contain" }}
+                    objectFit="contain"
                   />
                 </div>
               </div>

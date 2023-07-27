@@ -47,7 +47,7 @@ export default function Home() {
                     src="/images/nike.png"
                     alt="nike"
                     fill
-                    style={{ objectFit: "contain" }}
+                    objectFit="contain"
                   />
                 </div>
               </div>
@@ -103,7 +103,7 @@ export default function Home() {
                     src="/images/nike.png"
                     alt="nike"
                     fill
-                    style={{ objectFit: "contain" }}
+                    objectFit="contain"
                   />
                 </div>
               </div>
