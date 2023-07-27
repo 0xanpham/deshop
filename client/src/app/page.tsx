@@ -41,7 +41,7 @@ export default function Home() {
         <div className="items-between my-10 flex h-[50vh] w-full gap-10">
           {[1, 2, 3, 4].map((item, index) => (
             <div key={index} className="h-full w-1/4">
-              <div className="h-3/4 w-full bg-gray-200 p-10">
+              <div className="h-3/4 w-full bg-gray-100 p-10">
                 <div className="relative h-full w-full">
                   <Image
                     src="/images/nike.png"
@@ -62,7 +62,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="relative mb-28 flex h-[30vh] w-full items-center bg-gray-200 px-24">
+      <section className="relative mb-28 flex h-[30vh] w-full items-center bg-gray-100 px-24">
         <div>
           <h1 className="text-5xl font-bold">CHERNER</h1>
           <p className="mb-10 text-lg text-gray-500">by Morman Cherner</p>
@@ -97,7 +97,7 @@ export default function Home() {
         <div className="items-between my-10 flex h-[50vh] w-full gap-10">
           {[1, 2, 3, 4].map((item, index) => (
             <div key={index} className="h-full w-1/4">
-              <div className="h-3/4 w-full bg-gray-200 p-10">
+              <div className="h-3/4 w-full bg-gray-100 p-10">
                 <div className="relative h-full w-full">
                   <Image
                     src="/images/nike.png"

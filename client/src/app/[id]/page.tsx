@@ -5,7 +5,7 @@ export default function Detail() {
   return (
     <div className="min-h-screen w-full px-80 pb-20 pt-44">
       <section className="mb-28 flex gap-10 border-t border-gray-200 py-16">
-        <div className="h-[50vh] w-[40%] bg-gray-200 px-16">
+        <div className="h-[50vh] w-[40%] bg-gray-100 px-16">
           <div className="relative h-full w-full">
             <Image src="/images/nike.png" alt="nike" fill objectFit="contain" />
           </div>
@@ -48,7 +48,7 @@ export default function Detail() {
         <div className="items-between my-10 flex h-[50vh] w-full gap-10">
           {[1, 2, 3, 4].map((item, index) => (
             <div key={index} className="h-full w-1/4">
-              <div className="h-3/4 w-full bg-gray-200 p-10">
+              <div className="h-3/4 w-full bg-gray-100 p-10">
                 <div className="relative h-full w-full">
                   <Image
                     src="/images/nike.png"
