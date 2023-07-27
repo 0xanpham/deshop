@@ -2,10 +2,10 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className="w-full px-80">
-      <div className="flex h-[40vh] justify-between border-y border-gray-200 py-28">
+    <div className="container mx-auto w-full">
+      <div className="flex justify-between border-y border-gray-200 py-28">
         {[1, 2, 3, 4].map((item, index) => (
-          <div key={index} className="flex h-full w-1/4 flex-col">
+          <div key={index} className="flex w-1/4 flex-col">
             <h2 className="mb-6 text-xl font-bold">About</h2>
             <ul className="text-gray-500">
               <li>News & Stories</li>

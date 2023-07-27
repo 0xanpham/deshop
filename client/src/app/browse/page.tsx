@@ -5,7 +5,7 @@ import { FaEthereum } from "react-icons/fa";
 
 export default function Browse() {
   return (
-    <div className="flex min-h-screen w-full px-80 py-20 pt-44">
+    <div className="container mx-auto flex min-h-screen gap-10 py-20 pt-44">
       <Filter />
       <div className="w-full">
         <div className="mb-10 flex items-center justify-between">

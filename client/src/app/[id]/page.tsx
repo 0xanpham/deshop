@@ -3,7 +3,7 @@ import { FaEthereum } from "react-icons/fa";
 
 export default function Detail() {
   return (
-    <div className="min-h-screen w-full px-80 pb-20 pt-44">
+    <div className="container mx-auto min-h-screen pb-20 pt-44">
       <section className="mb-28 flex gap-10 border-t border-gray-200 py-16">
         <div className="h-[50vh] w-[40%] bg-gray-100 px-16">
           <div className="relative h-full w-full">
