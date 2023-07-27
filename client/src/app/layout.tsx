@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import { MetamaskProvider } from "./hooks/useMetamask";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Nav />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <MetamaskProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <Nav />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </MetamaskProvider>
   );
 }
