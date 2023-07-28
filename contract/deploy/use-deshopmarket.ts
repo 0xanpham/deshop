@@ -1,13 +1,14 @@
 import { Provider } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
+import fs from "fs";
 
 // load env file
 import dotenv from "dotenv";
 dotenv.config();
 
 // load contract artifact. Make sure to compile first!
-import * as ContractArtifact from "../artifacts-zk/contracts/Greeter.sol/Greeter.json";
+import * as ContractArtifact from "../artifacts-zk/contracts/DeShopMarket.sol/DeShopMarket.json";
 
 const PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY || "";
 
@@ -15,7 +16,10 @@ if (!PRIVATE_KEY)
   throw "⛔️ Private key not detected! Add it to the .env file!";
 
 // Address of the contract on zksync testnet
-const CONTRACT_ADDRESS = "";
+const CONTRACT_ADDRESS = fs.readFileSync(
+  __dirname + "/../address/deshopmarket.txt",
+  "utf-8"
+);
 
 if (!CONTRACT_ADDRESS) throw "⛔️ Contract address not provided";
 
@@ -36,15 +40,15 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   );
 
   // Read message from contract
-  console.log(`The message is ${await contract.greet()}`);
+  console.log(`The owner is ${await contract.owner()}`);
 
-  // send transaction to update the message
-  const newMessage = "Hello people!";
-  const tx = await contract.setGreeting(newMessage);
+  // // send transaction to update the message
+  // const newMessage = "Hello people!";
+  // const tx = await contract.setGreeting(newMessage);
 
-  console.log(`Transaction to change the message is ${tx.hash}`);
-  await tx.wait();
+  // console.log(`Transaction to change the message is ${tx.hash}`);
+  // await tx.wait();
 
-  // Read message after transaction
-  console.log(`The message now is ${await contract.greet()}`);
+  // // Read message after transaction
+  // console.log(`The message now is ${await contract.greet()}`);
 }
