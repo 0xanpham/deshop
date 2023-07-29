@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { MetamaskProvider } from "./hooks/useMetamask";
+import { Web3Provider } from "./hooks/useWeb3";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,14 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <MetamaskProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <Nav />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </MetamaskProvider>
+    <Web3Provider>
+      <MetamaskProvider>
+        <html lang="en">
+          <body className={inter.className}>
+            <Nav />
+            {children}
+            <Footer />
+          </body>
+        </html>
+      </MetamaskProvider>
+    </Web3Provider>
   );
 }
