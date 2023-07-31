@@ -3,6 +3,7 @@ import marketConfig from "@/config/market";
 import zkSyncConfig from "@/config/zksync";
 import { ethers } from "ethers";
 import { getURI } from "./nft";
+import { setTimeout } from "timers/promises";
 
 export interface IMarketItem {
   id: string;
@@ -42,8 +43,8 @@ export async function getAllMarketItems(): Promise<IMarketItem[]> {
         };
       }),
     );
-    console.log(data);
     return data;
+    // return data;
   } catch (error) {
     throw new Error("Failed to fetch market items");
   }
