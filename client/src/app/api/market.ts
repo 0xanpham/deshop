@@ -48,3 +48,36 @@ export async function getAllMarketItems(): Promise<IMarketItem[]> {
     throw new Error("Failed to fetch market items");
   }
 }
+
+export async function getMarketItemById(id: string): Promise<IMarketItem> {
+  try {
+    const marketItems = await getAllMarketItems();
+    const marketItem = marketItems.find((item) => item.id === id);
+    if (!marketItem) {
+      throw new Error("Cannot find market item with id " + id);
+    }
+    return marketItem;
+  } catch (error) {
+    throw new Error("Failed to fetch market item with id " + id);
+  }
+}
+
+export async function getAllCategories(): Promise<string[]> {
+  const provider = new ethers.JsonRpcProvider(
+    zkSyncConfig.testnet.rpcUrl,
+    undefined,
+  );
+  const contract = new ethers.Contract(
+    marketConfig.testnet.address,
+    DeShopMarketABI,
+    provider,
+  );
+  let data;
+  try {
+    data = await contract.getAllCategories();
+    console.log(data);
+    return data as string[];
+  } catch (error) {
+    throw new Error("Failed to fetch market items");
+  }
+}

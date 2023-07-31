@@ -1,13 +1,19 @@
 import Image from "next/image";
 import { FaEthereum } from "react-icons/fa";
+import { getMarketItemById } from "../api/market";
+import { formatEther } from "ethers";
 
-export default function Detail() {
+export const revalidate = 0;
+
+export default async function Detail({ params }: { params: { id: string } }) {
+  const marketItem = await getMarketItemById(params.id);
+
   return (
     <div className="container mx-auto min-h-screen pb-20 pt-44">
       <section className="mb-28 flex gap-10 border-t border-gray-200 py-16">
         <div className="h-[50vh] w-[40%] bg-gray-100 px-16">
           <div className="relative h-full w-full">
-            <Image src="/images/nike.png" alt="nike" fill objectFit="contain" />
+            <Image src={marketItem.uri} alt="nike" fill objectFit="contain" />
           </div>
         </div>
         <div className="flex flex-col">
@@ -19,7 +25,7 @@ export default function Detail() {
             the readable content of a page when looking at its layout
           </p>
           <div className="flex items-center gap-1 text-2xl font-bold">
-            <FaEthereum /> 100
+            <FaEthereum /> {formatEther(marketItem.price)}
           </div>
           <div className="my-10 h-[1px] w-full bg-gray-200" />
           <div>

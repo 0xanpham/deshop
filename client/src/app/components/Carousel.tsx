@@ -7,7 +7,13 @@ import { formatEther } from "ethers";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Carousel({ data }: { data: IMarketItem[] }) {
+export default function Carousel({
+  data,
+  categories,
+}: {
+  data: IMarketItem[];
+  categories: string[];
+}) {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   const next = () => {
@@ -42,19 +48,25 @@ export default function Carousel({ data }: { data: IMarketItem[] }) {
   return (
     <section className="mb-28 w-full">
       <div className="flex items-center justify-between uppercase">
-        <ul className="flex items-center gap-4 font-semibold">
-          <li>Furniture</li>
-          <li>Furniture</li>
-          <li>Furniture</li>
-          <li>Furniture</li>
-          <li className="border-b border-black">All</li>
+        <ul className="flex items-center gap-12 font-semibold">
+          {categories.map((category, index) => (
+            <li
+              className="cursor-pointer border-b border-transparent hover:border-black"
+              key={index}
+            >
+              {category}
+            </li>
+          ))}
+          <li className="cursor-pointer border-b border-transparent hover:border-black">
+            All
+          </li>
         </ul>
         <div className="flex items-center gap-2">
-          <button className="uppercase" onClick={back}>
+          <button className="uppercase hover:font-semibold" onClick={back}>
             Back
           </button>
           <div className="h-4 w-[1px] bg-black" />
-          <button className="uppercase" onClick={next}>
+          <button className="uppercase hover:font-semibold" onClick={next}>
             Next
           </button>
         </div>
