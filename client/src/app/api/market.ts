@@ -49,13 +49,12 @@ export async function getAllMarketItems(): Promise<IMarketItem[]> {
   }
 }
 
-export async function getMarketItemById(id: string): Promise<IMarketItem> {
+export async function getMarketItemById(
+  id: string,
+): Promise<IMarketItem | undefined> {
   try {
     const marketItems = await getAllMarketItems();
     const marketItem = marketItems.find((item) => item.id === id);
-    if (!marketItem) {
-      throw new Error("Cannot find market item with id " + id);
-    }
     return marketItem;
   } catch (error) {
     throw new Error("Failed to fetch market item with id " + id);

@@ -2,11 +2,16 @@ import Image from "next/image";
 import { FaEthereum } from "react-icons/fa";
 import { getMarketItemById } from "../api/market";
 import { formatEther } from "ethers";
+import { notFound } from "next/navigation";
 
 export const revalidate = 0;
 
 export default async function Detail({ params }: { params: { id: string } }) {
   const marketItem = await getMarketItemById(params.id);
+
+  if (!marketItem) {
+    notFound();
+  }
 
   return (
     <div className="container mx-auto min-h-screen pb-20 pt-44">
