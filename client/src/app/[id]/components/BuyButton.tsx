@@ -1,7 +1,7 @@
 "use client";
 
-import { buy } from "@/app/api/market";
-import useMetamask from "@/app/hooks/useMetamask";
+import { buy } from "@/api/market";
+import useMetamask from "@/hooks/useMetamask";
 import { useState } from "react";
 import { toast } from "react-toastify";
 

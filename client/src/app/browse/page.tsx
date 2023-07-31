@@ -2,7 +2,7 @@ import Image from "next/image";
 import Filter from "./components/Filter";
 import Select from "./components/Select";
 import { FaEthereum } from "react-icons/fa";
-import { getAllMarketItems } from "../api/market";
+import { getAllMarketItems } from "../../api/market";
 import { formatEther } from "ethers";
 
 export const revalidate = 0;

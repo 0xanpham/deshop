@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Carousel from "./components/Carousel";
 import Link from "next/link";
-import { getAllCategories, getAllMarketItems } from "./api/market";
+import { getAllCategories, getAllMarketItems } from "../api/market";
 
 export const revalidate = 0;
 

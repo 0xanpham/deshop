@@ -1,8 +1,8 @@
 "use client";
 
 import { FaUserCircle } from "react-icons/fa";
-import useMetamask, { IMetamaskContext } from "../hooks/useMetamask";
-import { truncateAddress } from "../utils";
+import useMetamask, { IMetamaskContext } from "../../hooks/useMetamask";
+import { truncateAddress } from "../../utils";
 import { toast } from "react-toastify";
 
 export default function LoginButton() {

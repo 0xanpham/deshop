@@ -1,7 +1,7 @@
 export default function Loading() {
   // Or a custom loading skeleton component
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center bg-white">
+    <div className="container mx-auto flex h-screen flex-col items-center justify-center bg-white">
       <svg
         aria-hidden="true"
         className="h-14 w-14 animate-spin fill-black text-gray-200 dark:text-gray-600"

@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import { MetamaskProvider } from "./hooks/useMetamask";
-import { Web3Provider } from "./hooks/useWeb3";
+import { MetamaskProvider } from "../hooks/useMetamask";
+import { Web3Provider } from "../hooks/useWeb3";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 

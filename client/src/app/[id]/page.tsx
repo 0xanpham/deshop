@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaEthereum } from "react-icons/fa";
-import { getMarketItemById } from "../api/market";
+import { getMarketItemById } from "../../api/market";
 import { formatEther } from "ethers";
 import { notFound } from "next/navigation";
 import BuyButton from "./components/BuyButton";
@@ -38,7 +38,7 @@ export default async function Detail({ params }: { params: { id: string } }) {
             <h2 className="text-xl font-semibold uppercase">Properties</h2>
             <div className="mt-2 h-1 w-12 bg-black" />
             <ul className="my-6 list-none">
-              <li>Made in Vietnamese</li>
+              <li>Made in Vietnam</li>
               <li>Studded magnet closure</li>
               <li>3 compartments</li>
             </ul>
