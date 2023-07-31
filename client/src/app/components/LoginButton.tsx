@@ -11,15 +11,9 @@ export default function LoginButton() {
   const handleConnect = async () => {
     try {
       await connect();
-      toast.success("Connect successfully!", {
-        position: toast.POSITION.TOP_RIGHT,
-        delay: 3000,
-      });
+      toast.success("Connect successfully!");
     } catch (error: any) {
-      toast.error(error.toString(), {
-        position: toast.POSITION.TOP_RIGHT,
-        delay: 3000,
-      });
+      toast.error(error.toString());
     }
   };
 

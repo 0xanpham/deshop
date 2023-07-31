@@ -27,7 +27,7 @@ export default function RootLayout({
           <body className={inter.className}>
             <Nav />
             {children}
-            <ToastContainer />
+            <ToastContainer position="top-right" autoClose={3000} />
             <Footer />
           </body>
         </html>

@@ -4,6 +4,8 @@ import zkSyncConfig from "@/config/zksync";
 import { ethers } from "ethers";
 import { getURI } from "./nft";
 import { setTimeout } from "timers/promises";
+import { Signer } from "ethers";
+import { TransactionReceipt } from "ethers";
 
 export interface IMarketItem {
   id: string;
@@ -79,5 +81,24 @@ export async function getAllCategories(): Promise<string[]> {
     return data as string[];
   } catch (error) {
     throw new Error("Failed to fetch market items");
+  }
+}
+
+export async function buy(
+  signer: Signer,
+  id: string,
+  price: string,
+): Promise<TransactionReceipt> {
+  try {
+    const contract = new ethers.Contract(
+      marketConfig.testnet.address,
+      DeShopMarketABI,
+      signer,
+    );
+    const tx = await contract.buy(id, { value: price });
+    const txReceipt = await tx.wait();
+    return txReceipt as TransactionReceipt;
+  } catch (error: any) {
+    throw "Failed to buy, please try again";
   }
 }

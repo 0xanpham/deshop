@@ -3,6 +3,7 @@ import { FaEthereum } from "react-icons/fa";
 import { getMarketItemById } from "../api/market";
 import { formatEther } from "ethers";
 import { notFound } from "next/navigation";
+import BuyButton from "./components/BuyButton";
 
 export const revalidate = 0;
 
@@ -37,14 +38,12 @@ export default async function Detail({ params }: { params: { id: string } }) {
             <h2 className="text-xl font-semibold uppercase">Properties</h2>
             <div className="mt-2 h-1 w-12 bg-black" />
             <ul className="my-6 list-none">
-              <li>Made in Vietname</li>
+              <li>Made in Vietnamese</li>
               <li>Studded magnet closure</li>
               <li>3 compartments</li>
             </ul>
           </div>
-          <button className="mt-auto h-20 w-48 bg-black text-xl font-bold uppercase text-white">
-            Buy
-          </button>
+          <BuyButton id={marketItem.id} price={marketItem.price} />
         </div>
       </section>
       <section className="w-full">
