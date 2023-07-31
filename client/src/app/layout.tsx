@@ -5,6 +5,8 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { MetamaskProvider } from "./hooks/useMetamask";
 import { Web3Provider } from "./hooks/useWeb3";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +27,7 @@ export default function RootLayout({
           <body className={inter.className}>
             <Nav />
             {children}
+            <ToastContainer />
             <Footer />
           </body>
         </html>

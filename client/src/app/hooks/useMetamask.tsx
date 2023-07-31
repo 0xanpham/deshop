@@ -50,11 +50,15 @@ export function MetamaskProvider({ children }: { children: ReactNode }) {
   };
 
   const connect = async () => {
-    if (window.ethereum == null) {
-      throw "MetaMask not installed; using read-only defaults";
-    } else {
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      setSigner(await provider.getSigner());
+    try {
+      if (window.ethereum == null) {
+        throw "MetaMask not installed; using read-only defaults";
+      } else {
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        setSigner(await provider.getSigner());
+      }
+    } catch (error) {
+      throw "User rejected to connect";
     }
   };
 
