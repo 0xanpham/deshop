@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { IMarketItem } from "../page";
+import { IMarketItem } from "../api/market";
 import { FaEthereum } from "react-icons/fa";
 import { formatEther } from "ethers";
 import { useState } from "react";
