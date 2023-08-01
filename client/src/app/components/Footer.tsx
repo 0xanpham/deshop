@@ -17,13 +17,7 @@ export default function Footer() {
         ))}
       </div>
       <div className="flex items-center justify-between py-10">
-        <ul className="flex items-center gap-10 uppercase">
-          <li>About Us</li>
-          <li>Blogs</li>
-          <li>FAQS</li>
-          <li>Order Tracking</li>
-          <li>Contact</li>
-        </ul>
+        <span>Copyright &copy; 2023 by An Pham</span>
         <div className="flex items-center gap-10">
           <h2>Connect with us</h2>
           <ul className="flex gap-5">
