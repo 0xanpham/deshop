@@ -10,9 +10,11 @@ import Link from "next/link";
 export default function Carousel({
   data,
   categories,
+  title,
 }: {
   data: IMarketItem[];
   categories: string[];
+  title?: string;
 }) {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
@@ -48,19 +50,20 @@ export default function Carousel({
   return (
     <section className="mb-28 w-full">
       <div className="flex items-center justify-between uppercase">
-        <ul className="flex items-center gap-12 font-semibold">
-          {categories.map((category, index) => (
-            <li
-              className="cursor-pointer border-b border-transparent hover:border-black"
-              key={index}
-            >
-              {category}
-            </li>
-          ))}
-          <li className="cursor-pointer border-b border-transparent hover:border-black">
-            All
-          </li>
-        </ul>
+        {title ? (
+          <span className="font-semibold">{title}</span>
+        ) : (
+          <ul className="flex items-center gap-12 font-semibold">
+            {categories.map((category, index) => (
+              <li
+                className="cursor-pointer border-b border-transparent hover:border-black"
+                key={index}
+              >
+                {category}
+              </li>
+            ))}
+          </ul>
+        )}
         <div className="flex items-center gap-2">
           <button className="uppercase hover:font-semibold" onClick={back}>
             Back

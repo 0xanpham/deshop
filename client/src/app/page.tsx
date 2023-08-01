@@ -51,7 +51,7 @@ export default async function Home() {
           />
         </div>
       </section>
-      <Carousel categories={categories} data={marketItems} />
+      <Carousel categories={["New", "Best Seller", "Hot"]} data={marketItems} />
       <section className="mb-28 flex h-[40vh] w-full flex-col items-center justify-center bg-gray-100 p-24">
         <h1 className="text-4xl font-bold">KEEP UPDATED</h1>
         <p className="my-4 mb-10 text-lg italic text-gray-500">

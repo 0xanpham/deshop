@@ -4,6 +4,7 @@ import Select from "./components/Select";
 import { FaEthereum } from "react-icons/fa";
 import { getAllMarketItems } from "../../api/market";
 import { formatEther } from "ethers";
+import Link from "next/link";
 
 export const revalidate = 0;
 
@@ -17,14 +18,18 @@ export default async function Browse() {
         <div className="mb-10 flex items-center justify-between">
           <Select />
           <div className="w-fit font-semibold uppercase">
-            <h2>Showing 12 results</h2>
+            <h2>Showing {marketItems.length} results</h2>
             <div className="mt-1 h-[1px] w-full bg-black" />
           </div>
         </div>
         <div className="grid w-full grid-cols-3 gap-6">
           {marketItems &&
             marketItems.map((item, index) => (
-              <div key={index} className="h-[50vh] w-full">
+              <Link
+                href={`/${item.id}`}
+                key={index}
+                className="h-[50vh] w-full"
+              >
                 <div className="h-3/4 w-full bg-gray-100 p-10">
                   <div className="relative h-full w-full">
                     <Image src={item.uri} alt="nike" fill objectFit="contain" />
@@ -37,7 +42,7 @@ export default async function Browse() {
                   <FaEthereum />
                   {formatEther(item.price)}
                 </div>
-              </div>
+              </Link>
             ))}
         </div>
       </div>
