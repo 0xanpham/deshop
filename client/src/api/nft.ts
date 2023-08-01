@@ -2,6 +2,7 @@ import { DeShopMarketABI, DeShopNFTABI } from "@/abi";
 import { JsonRpcProvider, ethers } from "ethers";
 import { getAllMarketItems } from "./market";
 import nftConfig from "@/config/nft";
+import zkSyncConfig from "@/config/zksync";
 
 export interface IUserNFT {
   uri: string;
@@ -23,10 +24,11 @@ export async function getURI(
   return data.toString();
 }
 
-export async function getUserAllNFTs(
-  provider: JsonRpcProvider,
-  userAddress: string,
-): Promise<IUserNFT[]> {
+export async function getUserAllNFTs(userAddress: string): Promise<IUserNFT[]> {
+  const provider = new ethers.JsonRpcProvider(
+    zkSyncConfig.testnet.rpcUrl,
+    undefined,
+  );
   const nfts: IUserNFT[] = [];
   const marketItems = await getAllMarketItems();
   const nftContract = new ethers.Contract(
