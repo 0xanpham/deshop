@@ -43,6 +43,11 @@ export default function Profile() {
         <LoadingScreen />
       ) : (
         <div className="container mx-auto min-h-screen overflow-x-hidden py-20 pt-44">
+          {nfts.length === 0 && (
+            <div className="my-auto flex h-[60vh] w-full items-center justify-center">
+              Empty Inventory
+            </div>
+          )}
           <div className="grid w-full grid-cols-4 gap-10">
             {nfts.map((item, index) => (
               <div key={index} className="h-[50vh] w-full">
