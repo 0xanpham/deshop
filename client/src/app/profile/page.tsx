@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import useMetamask from "../../hooks/useMetamask";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { IUserNFT, getUserAllNFTs } from "@/api/nft";
 import useWeb3 from "@/hooks/useWeb3";
 import Image from "next/image";
@@ -13,12 +13,15 @@ export default function Profile() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [nfts, setNfts] = useState<IUserNFT[]>([]);
 
+  const router = useRouter();
+
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (!signer) {
-        redirect("/");
+        router.push("/");
       }
-    }, 100);
+    }, 3000);
+    return () => clearTimeout(timeout);
   }, [signer]);
 
   useEffect(() => {
