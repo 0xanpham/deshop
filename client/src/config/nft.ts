@@ -1,6 +1,6 @@
 const nftConfig = {
   testnet: {
-    address: "0xf6c5acC394a5Fbcc0686c0Fd749B35Ee6186b9A8",
+    address: "0xec86d19424a08a289d0e5e877D7cE55Ea65B8101",
   },
 };
 

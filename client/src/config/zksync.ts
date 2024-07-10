@@ -1,6 +1,6 @@
 const zkSyncConfig = {
   testnet: {
-    rpcUrl: "https://testnet.era.zksync.dev",
+    rpcUrl: "https://sepolia.era.zksync.dev",
   },
 };
 
