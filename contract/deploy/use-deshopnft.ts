@@ -2,6 +2,7 @@ import { Provider } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import fs from "fs";
+import hre from "hardhat";
 
 // load env file
 import dotenv from "dotenv";
@@ -24,7 +25,7 @@ const CONTRACT_ADDRESS = fs.readFileSync(
 if (!CONTRACT_ADDRESS) throw "⛔️ Contract address not provided";
 
 // An example of a deploy script that will deploy and call a simple contract.
-export default async function (hre: HardhatRuntimeEnvironment) {
+async function main(hre: HardhatRuntimeEnvironment) {
   console.log(`Running script to interact with contract ${CONTRACT_ADDRESS}`);
 
   // Initialize the provider.
@@ -52,3 +53,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // // Read message after transaction
   // console.log(`The message now is ${await contract.greet()}`);
 }
+
+main(hre).catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

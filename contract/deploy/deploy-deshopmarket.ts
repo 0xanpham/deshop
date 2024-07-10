@@ -1,8 +1,9 @@
-import { Wallet, utils } from "zksync-web3";
+import { Wallet } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 import fs from "fs";
+import hre from "hardhat";
 
 // load env file
 import dotenv from "dotenv";
@@ -15,7 +16,7 @@ if (!PRIVATE_KEY)
   throw "⛔️ Private key not detected! Add it to the .env file!";
 
 // An example of a deploy script that will deploy and call a simple contract.
-export default async function (hre: HardhatRuntimeEnvironment) {
+async function main(hre: HardhatRuntimeEnvironment) {
   console.log(`Running deploy script for the DeShopMarket contract`);
 
   // Initialize the wallet.
@@ -69,3 +70,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     console.log(`Contract not verified, deployed locally.`);
   }
 }
+
+main(hre).catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
